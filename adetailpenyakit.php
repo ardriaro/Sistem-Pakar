@@ -39,12 +39,12 @@ header("location: about.php");
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="homeadmin.php"><button type="button" class="btn btn-primary btn-block">BERANDA</button></a></p>
-      <p><a href="hamadanpenyakit.php"><button type="button" class="btn btn-primary btn-block active">HAMA dan PENYAKIT</button></a></p>
-      <p><a href="gejala.php"><button type="button" class="btn btn-primary btn-block">GEJALA</button></a></p>
-      <p><a href="basispengetahuan.php"><button type="button" class="btn btn-primary btn-block">BASIS PENGETAHUAN</button></a></p>
+      <p><a href="homeadmin.php"><button type="button" class="btn btn-primary btn-block" style="background-color: #228B22; color: #FFFFFF;">BERANDA</button></a></p>
+      <p><a href="hamadanpenyakit.php"><button type="button" class="btn btn-primary btn-block active" style="background-color: #228B22; color: #FFFFFF;">HAMA dan PENYAKIT</button></a></p>
+      <p><a href="gejala.php"><button type="button" class="btn btn-primary btn-block" style="background-color: #228B22; color: #FFFFFF;">GEJALA</button></a></p>
+      <p><a href="basispengetahuan.php"><button type="button" class="btn btn-primary btn-block" style="background-color: #228B22; color: #FFFFFF;">BASIS PENGETAHUAN</button></a></p>
       <br><br><br><br><br><br><br><br><br><br>
-      <p><a href="logout.php"><button type="button" class="btn btn-primary btn-block" id="myBtn">LOGOUT</button></a></p>
+      <p><a href="logout.php"><button type="button" class="btn btn-primary btn-block" style="background-color: #228B22; color: #FFFFFF;" id="myBtn">LOGOUT</button></a></p>
     </div>
     <div class="col-sm-8 text-left"> 
       <h2 class="text-center">DETAIL HAMA DAN PENYAKIT</h2>
@@ -182,7 +182,7 @@ header("location: about.php");
     </div>
   </div> 
 <footer class="container-fluid text-center">
-  <p>S1-Sistem Informasi 2013</p>
+  <p>S1 Teknik Informatika 2024</p>
 </footer>
 <script>
 $(document).ready(function(){

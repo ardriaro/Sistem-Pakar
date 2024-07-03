@@ -8,7 +8,7 @@ header("location: about.php");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sistem Pakar</title>
+  <title>Sistem Pakar Diagnosa Penyakit Pada Tomat</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -38,13 +38,14 @@ header("location: about.php");
   
 <div class="container-fluid text-center">    
   <div class="row content">
-    <div class="col-sm-2 sidenav">
-       <p><a href="index.php"><button type="button" class="btn btn-primary btn-block">BERANDA</button></a></p>
-      <p><a href="diagnosa.php"><button type="button" class="btn btn-primary btn-block">DIAGNOSA PENYAKIT</button></a></p>
-      <p><a href="daftarpenyakit.php"><button type="button" class="btn btn-primary btn-block active">DAFTAR PENYAKIT</button></a></p>
-      <p><a href="about.php"><button type="button" class="btn btn-primary btn-block">ABOUT</button></a></p>
-        <br><br><br><br><br><br><br><br><br><br>
-      <p><button type="button" class="btn btn-primary btn-block" id="myBtn">LOGIN</button></p>
+  <div class="col-sm-2 sidenav">
+    <p><a href="index.php"><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;">BERANDA</button></a></p>
+      <p><a href="diagnosa.php"><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;">DIAGNOSA PENYAKIT</button></a></p>
+      <p><a href="daftarpenyakit.php"><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;">DAFTAR PENYAKIT</button></a></p>
+      <br><br><br><br><br><br><br><br><br><br>
+      <p><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;" id="myBtn">LOGIN</button></p>
+
+
     </div>
     <div class="col-sm-8 text-left"> 
       <h2 class="text-center">DAFTAR PENYAKIT</h2>
@@ -52,10 +53,21 @@ header("location: about.php");
 				<label for="sel1">Jenis Tanaman</label>            
 				<select class="form-control" name="tanaman" onChange='this.form.submit();'>
 				<option>Tanaman</option>
-                <option>Bawang</option>
-                <option>Cabai</option>
+                <option>Tomat</option>
   		</select>
   </form>
+
+  <br>
+<!-- Search box and button -->
+<form method="GET" action="daftarpenyakit.php">
+  <div class="form-group">
+    <label for="search">Search Penyakit:</label>
+    <input type="text" class="form-control" name="search" id="search" placeholder="Masukkan nama penyakit" value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>">
+    <button type="submit" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF; margin-top: 10px;">Search</button>
+  </div>
+</form>
+<br>
+
         
     	<br>
             <div class="box-body table-responsive">
@@ -69,26 +81,43 @@ header("location: about.php");
                             <th>Detail</th>
                         </tr>
                     </thead>
-                     <?php
-if(isset($_POST['tanaman']))
-                    if($_POST['tanaman']!="jenistanaman"){
-$queri="Select * From penyakit where jenistanaman = \"".$_POST['tanaman']."\"";
-$hasil=mysqli_query ($konek_db,$queri);   
-$id = 0;
-while ($data = mysqli_fetch_array ($hasil)){  
- 			$id++; 
- 			echo "      
-        			<tr>  
-        			<td>".$id."</td>
-					<td>".$data[0]."</td>  
-        			<td>".$data[1]."</td>  
-        			<td>".$data[2]."</td>  
-                    <td><a href=\"detailpenyakit.php?id=".$data[0]."\"><i class='glyphicon glyphicon-search'></i></a></td>
-        		</tr>   
-        	";      
-			}
-                    }
- ?>  
+                    <?php
+if (isset($_POST['tanaman'])) {
+  if ($_POST['tanaman'] != "jenistanaman") {
+    $queri = "SELECT * FROM penyakit WHERE jenistanaman = '".$_POST['tanaman']."'";
+    $hasil = mysqli_query($konek_db, $queri);   
+    $id = 0;
+    while ($data = mysqli_fetch_array($hasil)){  
+      $id++; 
+      echo "      
+        <tr>  
+          <td>".$id."</td>
+          <td>".$data[0]."</td>  
+          <td>".$data[1]."</td>  
+          <td>".$data[2]."</td>  
+          <td><a href=\"detailpenyakit.php?id=".$data[0]."\"><i class='glyphicon glyphicon-search'></i></a></td>
+        </tr>";      
+    }
+  }
+} elseif (isset($_GET['search'])) {
+  $search = mysqli_real_escape_string($konek_db, $_GET['search']);
+  $queri = "SELECT * FROM penyakit WHERE namapenyakit LIKE '%".$search."%' OR idpenyakit LIKE '%".$search."%'";
+  $hasil = mysqli_query($konek_db, $queri);   
+  $id = 0;
+  while ($data = mysqli_fetch_array($hasil)){  
+    $id++; 
+    echo "      
+      <tr>  
+        <td>".$id."</td>
+        <td>".$data[0]."</td>  
+        <td>".$data[1]."</td>  
+        <td>".$data[2]."</td>  
+        <td><a href=\"detailpenyakit.php?id=".$data[0]."\"><i class='glyphicon glyphicon-search'></i></a></td>
+      </tr>";      
+  }
+}
+?>
+                    
 </table><br><br><br><br><br>
             </div>
     </div>
@@ -113,14 +142,14 @@ while ($data = mysqli_fetch_array ($hasil)){
               <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
               <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
             </div>
-              <button type="submit" id="submit" nama="submit" class="btn btn-primary btn-block" method="post"><span class="glyphicon glyphicon-off"></span> Login</button>
+              <button type="submit" id="submit" nama="submit" class="btn btn-primary btn-block active" method="post"><span class="glyphicon glyphicon-off"></span> Login</button>
           </form>
         </div>
       </div>
     </div>
   </div> 
 <footer class="container-fluid text-center">
-  <p>S1-Sistem Informasi 2013</p>
+  <p>S1 Teknik Informatika 2024</p>
 </footer>
 <script>
 $(document).ready(function(){

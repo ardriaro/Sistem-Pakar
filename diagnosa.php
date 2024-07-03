@@ -38,13 +38,14 @@ header("location: about.php");
   
 <div class="container-fluid text-center">    
   <div class="row content">
-    <div class="col-sm-2 sidenav">
-      <p><a href="index.php"><button type="button" class="btn btn-primary btn-block">BERANDA</button></a></p>
-      <p><a href="diagnosa.php"><button type="button" class="btn btn-primary btn-block active">DIAGNOSA PENYAKIT</button></a></p>
-      <p><a href="daftarpenyakit.php"><button type="button" class="btn btn-primary btn-block">DAFTAR PENYAKIT</button></a></p>
-      <p><a href="about.php"><button type="button" class="btn btn-primary btn-block">ABOUT</button></a></p>
-        <br><br><br><br><br><br><br><br><br><br>
-      <p><button type="button" class="btn btn-primary btn-block" id="myBtn">LOGIN</button></p>
+  <div class="col-sm-2 sidenav">
+    <p><a href="index.php"><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;">BERANDA</button></a></p>
+      <p><a href="diagnosa.php"><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;">DIAGNOSA PENYAKIT</button></a></p>
+      <p><a href="daftarpenyakit.php"><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;">DAFTAR PENYAKIT</button></a></p>
+      <br><br><br><br><br><br><br><br><br><br>
+      <p><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;" id="myBtn">LOGIN</button></p>
+
+
     </div>
     <div class="col-sm-8 text-left"> 
       <center><h2>DIAGNOSA PENYAKIT</h2></center>
@@ -52,8 +53,7 @@ header("location: about.php");
 				<label for="sel1">Jenis Tanaman</label>            
 				<select class="form-control" name="tanaman" onChange='this.form.submit();'>
 				<option>Tanaman</option>
-                <option>Bawang</option>
-                <option>Cabai</option>
+                <option>Tomat</option>
   		</select>
               </form>
        <br>     
@@ -96,7 +96,7 @@ header("location: about.php");
             if(isset($_POST['tanaman']))
                   if($_POST['tanaman']!="jenistanaman"){
                       echo  "<br><label>BUAH/UMBI</label><br>";
- 			$tampil="select * from gejala where daerah='Buah/Umbi' and jenistanaman= \"".$_POST['tanaman']."\"";
+ 			$tampil="select * from gejala where daerah='Buah' and jenistanaman= \"".$_POST['tanaman']."\"";
 			$query= mysqli_query($konek_db,$tampil);
                 while($hasil=mysqli_fetch_array($query)){  
 					echo "<input type='checkbox' value='".$hasil['gejala']."' name='gejala[]' /> ".$hasil['gejala']."<br>";
@@ -127,7 +127,7 @@ header("location: about.php");
 					?>
         
         <br>
-        <button type="submit" name ="submit" onclick="return checkDiagnosa()" class="btn btn-primary">CEK PENYAKIT</button><br><br>
+        <button type="submit" name ="submit" onclick="return checkDiagnosa()" class="btn btn-primary" style="background-color: #FF6347; color: #FFFFFF;">CEK PENYAKIT</button><br><br>
             <div class="panel panel-info">
                 <div class="panel-heading">HASIL DIAGNOSA</div>
                 <div class="panel-body">
@@ -148,6 +148,8 @@ header("location: about.php");
             $jumlah_dipilih = count($gejala);
            for($x=0;$x<$jumlah_dipilih;$x++){
                        $tampil ="select DISTINCT p.idpenyakit, p.namapenyakit, p.jenistanaman from basispengetahuan b, penyakit p where b.gejala='$gejala[$x]' and p.namapenyakit=b.namapenyakit group by namapenyakit";
+                       //$tampil = "select DISTICT p.idpenyakit, p.namapenyakit, p.jenistanaman FROM basispengetahuan b, penyakit p WHERE b.gejala='$gejala[$X]' and p.namapenyakit=b.namapenyakit GROUP BY namapenyakit";
+                       //$tampil = "select DISTINCT p.idpenyakit, p.namapenyakit, p.jenistanaman FROM basispengetahuan b JOIN penyakit p ON p.namapenyakit WHERE b.gejala = '$gejala[$x]'";
                        $result = mysqli_query($konek_db, $tampil);
                        $hasil  = mysqli_fetch_array($result);   
                     
@@ -174,6 +176,7 @@ header("location: about.php");
     </div>
   </div>
 </div>
+ <!-- Modal -->
  <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -194,15 +197,22 @@ header("location: about.php");
               <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
             </div>
               <button type="submit" id="submit" nama="submit" class="btn btn-primary btn-block" method="post"><span class="glyphicon glyphicon-off"></span> Login</button>
-          </form>
+          </form>     
+            
         </div>
       </div>
+        
+        
+   
+        
     </div>
   </div> 
+
 <footer class="container-fluid text-center">
-  <p>S1-Sistem Informasi 2013</p>
+  <p>S1-Teknik Informatika 2024</p>
 </footer>
-<script language="JavaScript" type="text/javascript">
+
+<script>
 $(document).ready(function(){
     $("#myBtn").click(function(){
         $("#myModal").modal();

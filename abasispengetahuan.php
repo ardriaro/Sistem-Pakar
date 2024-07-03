@@ -36,12 +36,12 @@ include "session.php";
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="homeadmin.php"><button type="button" class="btn btn-primary btn-block">BERANDA</button></a></p>
-      <p><a href="hamadanpenyakit.php"><button type="button" class="btn btn-primary btn-block">HAMA dan PENYAKIT</button></a></p>
-      <p><a href="gejala.php"><button type="button" class="btn btn-primary btn-block">GEJALA</button></a></p>
-      <p><a href="basispengetahuan.php"><button type="button" class="btn btn-primary btn-block active">BASIS PENGETAHUAN</button></a></p>
+      <p><a href="homeadmin.php"><button type="button" class="btn btn-primary btn-block" style="background-color: #228B22; color: #FFFFFF;">BERANDA</button></a></p>
+      <p><a href="hamadanpenyakit.php"><button type="button" class="btn btn-primary btn-block" style="background-color: #228B22; color: #FFFFFF;">HAMA dan PENYAKIT</button></a></p>
+      <p><a href="gejala.php"><button type="button" class="btn btn-primary btn-block" style="background-color: #228B22; color: #FFFFFF;">GEJALA</button></a></p>
+      <p><a href="basispengetahuan.php"><button type="button" class="btn btn-primary btn-block active" style="background-color: #228B22; color: #FFFFFF;">BASIS PENGETAHUAN</button></a></p>
       <br><br><br><br><br><br><br><br><br><br>
-      <p><a href="logout.php"><button type="button" class="btn btn-primary btn-block" id="myBtn">LOGOUT</button></a></p>
+      <p><a href="logout.php"><button type="button" class="btn btn-primary btn-block" style="background-color: #228B22; color: #FFFFFF;" id="myBtn">LOGOUT</button></a></p>
     </div>
     <div class="col-sm-8 text-left"> 
         <h2 class="text-center">BASIS PENGETAHUAN</h2>
@@ -49,8 +49,9 @@ include "session.php";
 				<label for="sel1">Jenis Tanaman</label>            
 				<select class="form-control" name="tanaman" onChange='this.form.submit();'>
 				<option>Tanaman</option>
-                <option>Bawang</option>
+                <option>Tomat</option>
                 <option>Cabai</option>
+                <option>Bawang</option>
   		</select>
               </form>
         <br><form id="form1" name="form1" method="post">
@@ -69,7 +70,7 @@ include "session.php";
         <br><label for="sel2">GEJALA</label><br>
 <form id="form2" name="form2" method="post" action="diagnosa.php">
     <div class="panel panel-primary">
-        <div class="panel-heading">AKAR</div>
+        <div class="panel-heading" style="background-color: #228B22; color: #FFFFFF;">AKAR</div>
         <div class="panel-body">
  			<?php 
             if(isset($_POST['tanaman']))
@@ -85,7 +86,7 @@ include "session.php";
             </div>
     </div>
     <div class="panel panel-primary">
-        <div class="panel-heading">BATANG</div>
+        <div class="panel-heading" style="background-color: #228B22; color: #FFFFFF;">BATANG</div>
             <div class="panel-body">          
  			<?php 
             if(isset($_POST['tanaman']))
@@ -100,7 +101,7 @@ include "session.php";
         </div>
     </div>
      <div class="panel panel-primary">
-        <div class="panel-heading">DAUN</div>
+        <div class="panel-heading" style="background-color: #228B22; color: #FFFFFF;">DAUN</div>
             <div class="panel-body">            
  			<?php 
             if(isset($_POST['tanaman']))
@@ -115,12 +116,12 @@ include "session.php";
          </div>
     </div>
      <div class="panel panel-primary">
-        <div class="panel-heading">BUAH/UMBI</div>
+        <div class="panel-heading" style="background-color: #228B22; color: #FFFFFF;">BUAH/UMBI</div>
                 <div class="panel-body">           
  			<?php 
             if(isset($_POST['tanaman']))
                   if($_POST['tanaman']!="jenistanaman"){
- 			$tampil="select * from gejala where daerah='Buah/Umbi' and jenistanaman= \"".$_POST['tanaman']."\"";
+ 			$tampil="select * from gejala where daerah='Buah' and jenistanaman= \"".$_POST['tanaman']."\"";
 			$query= mysqli_query($konek_db,$tampil);
                 while($hasil=mysqli_fetch_array($query)){  
 					echo "<input type='checkbox' value='".$hasil['gejala']."' name='gejala[]' /> ".$hasil['gejala']."<br>";
@@ -130,7 +131,7 @@ include "session.php";
          </div>
     </div>
     <div class="panel panel-primary">
-        <div class="panel-heading">BUNGA</div>
+        <div class="panel-heading" style="background-color: #228B22; color: #FFFFFF;">BUNGA</div>
                 <div class="panel-body">           
  			<?php 
             if(isset($_POST['tanaman']))
@@ -145,7 +146,7 @@ include "session.php";
         </div>
     </div>
     <div class="panel panel-primary">
-        <div class="panel-heading">BIJI</div>
+        <div class="panel-heading" style="background-color: #228B22; color: #FFFFFF;">BIJI</div>
                 <div class="panel-body">            
  			<?php 
             if(isset($_POST['tanaman']))
@@ -187,7 +188,7 @@ include "session.php";
 </div>
 
 <footer class="container-fluid text-center">
-  <p>S1-Sistem Informasi 2013</p>
+  <p>S1-Teknik Informatika 2024</p>
 </footer>
 
 </body>

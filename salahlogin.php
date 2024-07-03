@@ -2,7 +2,7 @@
 include('koneksi.php');
  
 if(isset($_SESSION['login_user'])){
-header("location: about.php");
+header("location: index.php");
 }
 ?>
 
@@ -42,12 +42,11 @@ header("location: about.php");
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="index.php"><button type="button" class="btn btn-primary btn-block active">BERANDA</button></a></p>
-      <p><a href="diagnosa.php"><button type="button" class="btn btn-primary btn-block">DIAGNOSA PENYAKIT</button></a></p>
-      <p><a href="daftarpenyakit.php"><button type="button" class="btn btn-primary btn-block">DAFTAR PENYAKIT</button></a></p>
-      <p><a href="about.php"><button type="button" class="btn btn-primary btn-block">ABOUT</button></a></p>
+      <p><a href="index.php"><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;">BERANDA</button></a></p>
+      <p><a href="diagnosa.php"><button type="button" class="btn btn-primary btn-block" style="background-color: #FF6347; color: #FFFFFF;">DIAGNOSA PENYAKIT</button></a></p>
+      <p><a href="daftarpenyakit.php"><button type="button" class="btn btn-primary btn-block" style="background-color: #FF6347; color: #FFFFFF;">DAFTAR PENYAKIT</button></a></p>
       <br><br><br><br><br><br><br><br><br><br>
-      <p><button type="button" class="btn btn-primary btn-block" id="myBtn">LOGIN</button></p>
+      <p><button type="button" class="btn btn-primary btn-block" id="myBtn" style="background-color: #FF6347; color: #FFFFFF;">LOGIN</button></p>
     </div>
     <div class="col-sm-8 text-left"> 
       <center><h2>SISTEM PAKAR DIAGNOSA HAMA DAN PENYAKIT TANAMAN BAWANG MERAH DAN CABAI
@@ -59,7 +58,15 @@ header("location: about.php");
         <div class="panel panel-info">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
-                    <p align=justify>Di Indonesia tanaman bawang dan cabai adalah salah satu jenis tanaman hortikultura yang secara luas dibudidayakan. Akan tetapi, jika dilihat dari hasil panen yang dihasilkan masih belum memuaskan. Hal ini disebabkan oleh berbagai faktor, diantaranya yaitu teknik budidaya, kondisi lingkungan dan hama penyakit. Dari ketiga faktor, faktor yang paling bermasalah sampai saat ini adalah hama dan penyakit.Masalahnya sering ditemui bahwa petani yang minim akan pengetahuaan mengenai penyakit yang menyerang tanaman mereka, ditambah lagi keterbatasan seorang ahli kadang-kadang menjadi kendala bagi petani yang akan melakukan konsultasi untuk menyelesaikan masalah dan mendapatkan solusi terbaik. Diharapka sistem pakar simulasi diagnosa hama dan penyakit tanaman bawang dan cabai dibuat bertujuan untuk sebagai sarana konsultasi, sarana belajar di suatu instansi dan dapat digunakan sebagai alat yang digunakan untuk mendiagnosa dan mensosialisasikan jenis hama dan penyakit.</p>
+                    <p align=justify>Sistem pakar diagnosa hama dan penyakit pada tanaman tomat adalah aplikasi berbasis teknologi yang dirancang untuk membantu petani dan agronom dalam mengidentifikasi dan mengatasi masalah yang disebabkan oleh hama dan penyakit pada tanaman tomat. Sistem ini memanfaatkan kecerdasan buatan dan pengetahuan dari para ahli di bidang pertanian untuk memberikan rekomendasi yang akurat dan tepat waktu.</p>
+
+                    <p align=justify>Tanaman tomat rentan terhadap berbagai jenis hama seperti ulat grayak, kutu daun, dan thrips, serta penyakit seperti layu bakteri, busuk buah, dan bercak daun. Tanpa penanganan yang tepat, serangan hama dan penyakit ini dapat menyebabkan penurunan hasil panen dan kualitas buah.</p>
+
+                    <p align=justify>Sistem pakar ini menggunakan metode Certainty Factor (CF) untuk menghitung tingkat kepastian dari diagnosa yang diberikan. Metode CF memungkinkan sistem untuk menangani ketidakpastian dalam diagnosa, memberikan hasil yang lebih fleksibel dan akurat berdasarkan gejala-gejala yang terlihat pada tanaman tomat.</p>
+
+                    <p align=justify>Aplikasi ini tersedia dalam bentuk website, memungkinkan akses yang mudah dan cepat bagi pengguna dari berbagai perangkat yang terhubung ke internet. Pengguna dapat menginput data gejala yang muncul pada tanaman mereka, dan sistem akan memproses data tersebut untuk memberikan diagnosa dan rekomendasi tindakan yang harus diambil, seperti penggunaan pestisida yang tepat, metode pengendalian biologis, atau praktik agronomi yang baik.</p>
+
+                    <p align=justify>Dengan adanya sistem pakar ini, diharapkan petani dapat lebih cepat dan tepat dalam menangani masalah hama dan penyakit pada tanaman tomat, sehingga produktivitas dan kualitas hasil panen dapat meningkat, serta kerugian akibat serangan hama dan penyakit dapat diminimalisir.</p>
             </div>
         </div>
       
@@ -99,7 +106,7 @@ header("location: about.php");
   </div> 
 
 <footer class="container-fluid text-center">
-  <p>S1-Sistem Informasi 2013</p>
+  <p>S1-Teknik Informatika 2024</p>
 </footer>
 
 <script>

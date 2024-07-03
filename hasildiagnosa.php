@@ -39,12 +39,11 @@ header("location: about.php");
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-       <p><a href="index.php"><button type="button" class="btn btn-primary btn-block">BERANDA</button></a></p>
-      <p><a href="diagnosa.php"><button type="button" class="btn btn-primary btn-block active">DIAGNOSA PENYAKIT</button></a></p>
-      <p><a href="daftarpenyakit.php"><button type="button" class="btn btn-primary btn-block">DAFTAR PENYAKIT</button></a></p>
-      <p><a href="about.php"><button type="button" class="btn btn-primary btn-block">ABOUT</button></a></p>
+       <p><a href="index.php"><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;">BERANDA</button></a></p>
+      <p><a href="diagnosa.php"><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;">DIAGNOSA PENYAKIT</button></a></p>
+      <p><a href="daftarpenyakit.php"><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;">DAFTAR PENYAKIT</button></a></p>
         <br><br><br><br><br><br><br><br><br><br>
-      <p><button type="button" class="btn btn-primary btn-block" id="myBtn">LOGIN</button></p>
+        <p><button type="button" class="btn btn-primary btn-block active" style="background-color: #FF6347; color: #FFFFFF;" id="myBtn">LOGIN</button></p>
     </div>
     <div class="col-sm-8 text-left"> 
       <h2 class="text-center">DETAIL DIAGNOSA</h2>
@@ -174,14 +173,14 @@ header("location: about.php");
               <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
               <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
             </div>
-              <button type="submit" id="submit" nama="submit" class="btn btn-primary btn-block" method="post"><span class="glyphicon glyphicon-off"></span> Login</button>
+              <button type="submit" id="submit" nama="submit" class="btn btn-primary btn-block active" method="post"><span class="glyphicon glyphicon-off"></span> Login</button>
           </form>
         </div>
       </div>
     </div>
   </div> 
 <footer class="container-fluid text-center">
-  <p>S1-Sistem Informasi 2013</p>
+  <p>S1-Teknik Informatika 2024</p>
 </footer>
 <script>
 $(document).ready(function(){
